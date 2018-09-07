@@ -1,4 +1,4 @@
-FROM microsoft/vsts-agent:$(VSTS_AGENT_TAG)
+FROM andrewajo/vsts-agent:$(VSTS_AGENT_TAG)
 
 ENV DOCKER_CHANNEL stable
 ENV DOCKER_VERSION $(DOCKER_VERSION)

@@ -4,9 +4,9 @@ set -e
 cd "$(dirname $0)"
 
 while read dir; do
-  docker push microsoft/vsts-agent:${dir//\//-}
+  docker push andrewajo/vsts-agent:${dir//\//-}
 done < <(./dirs.sh)
 
-if [ -n "$(docker images -f reference=microsoft/vsts-agent:latest -q)" ]; then
-  docker push microsoft/vsts-agent:latest
+if [ -n "$(docker images -f reference=andrewajo/vsts-agent:latest -q)" ]; then
+  docker push andrewajo/vsts-agent:latest
 fi

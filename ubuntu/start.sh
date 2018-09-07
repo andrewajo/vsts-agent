@@ -62,8 +62,8 @@ trap 'cleanup; exit 143' TERM
 echo Determining matching VSTS agent...
 VSTS_AGENT_RESPONSE=$(curl -LsS \
   -u user:$(cat "$VSTS_TOKEN_FILE") \
-  -H 'Accept:application/json;api-version=3.0-preview' \
-  "https://$VSTS_ACCOUNT.visualstudio.com/_apis/distributedtask/packages/agent?platform=linux-x64")
+  -H 'Accept:application/json;api-version=4.1' \
+  "https://$VSTS_ACCOUNT.visualstudio.com/_apis/distributedtask/packages/agent/linux-x64")
 
 if echo "$VSTS_AGENT_RESPONSE" | jq . >/dev/null 2>&1; then
   VSTS_AGENT_URL=$(echo "$VSTS_AGENT_RESPONSE" \
@@ -71,7 +71,7 @@ if echo "$VSTS_AGENT_RESPONSE" | jq . >/dev/null 2>&1; then
 fi
 
 if [ -z "$VSTS_AGENT_URL" -o "$VSTS_AGENT_URL" == "null" ]; then
-  echo 1>&2 error: could not determine a matching VSTS agent - check that account \'$VSTS_ACCOUNT\' is correct and the token is valid for that account
+  echo 1>&2 big error: could not determine a matching VSTS agent - check that account \'$VSTS_ACCOUNT\' is correct and the token is valid for that account
   exit 1
 fi
 

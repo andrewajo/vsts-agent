@@ -1,4 +1,4 @@
-FROM microsoft/vsts-agent:ubuntu-16.04
+FROM andrewajo/vsts-agent:ubuntu-16.04
 
 # To make it easier for build and release pipelines to run apt-get,
 # configure apt to not require confirmation (assume the -y argument by default)

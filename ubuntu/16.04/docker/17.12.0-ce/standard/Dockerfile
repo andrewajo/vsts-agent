@@ -1,4 +1,4 @@
-FROM microsoft/vsts-agent:ubuntu-16.04-standard
+FROM andrewajo/vsts-agent:ubuntu-16.04-standard
 
 ENV DOCKER_CHANNEL stable
 ENV DOCKER_VERSION 17.12.0-ce
